@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+
+
+        <link rel="stylesheet" href="css/codemirror.css">
+        <link rel="stylesheet" href="css/vis.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-12">
+        <h1>Visualize Causal Model</h1>
+        <p>You can generate publication-quality visualizations of causal models here. You can move nodes to where you want them, and scroll to zoom in/out.
+        Once you're done, click the export button, and you can save the resulting png. If some parts of the exported image are cut off, you can increase the export padding.</p>
+        <p><a class="btn btn-default" href="#" role="button" onclick="parseGraph()">Draw Graph</a>&nbsp;<a class="btn btn-default" href="#" role="button" onclick="exportImage()">Export to PNG</a> 
+        <b>Export Padding:</b> top: <input type="number" id="ptop"/> bottom: <input type="number" id="pbottom" /> left: <input type="number" id="pleft" /> right: <input type="number" id="pright" />
+        <a href="#" role="button" onclick="resetPadding()">reset padding</a> 
+        
+        <span id="errortext" style="color:red;margin-left: 10px;"></span><span id="boundtext" style="color:green;font-weight: bold;font-size: 150%;"></span></p>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <textarea id="graphinput">
+<NODES>
+x
+y
+z
+
+<EDGES>
+x -> y
+x -- y
+z -> x
+
+          </textarea>
+        </div>
+        <div class="col-md-8">
+          <div id="graphvis"></div>
+       </div>
+      </div>
+
+    </div>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.0.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/codemirror.js"></script>
+        <script src="js/vendor/active-line.js"></script>
+        <script src="js/vendor/vis.min.js"></script>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

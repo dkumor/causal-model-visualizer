@@ -1,0 +1,19 @@
+
+
+input[type=number]{
+    width: 40px;
+} 
+
+
+
+
+.CodeMirror {
+  height: 700px;
+  border: 1px solid #ccc;
+}
+
+#graphvis {
+  height: 700px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
