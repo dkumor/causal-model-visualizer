@@ -16,7 +16,9 @@ var data = {
     edges: edges
 };
 
+
 var visualization = new vis.Network(document.getElementById("graphvis"), data, {});
+
 
 function drawGraph(data) {
     nodes = [];
@@ -56,8 +58,12 @@ function drawGraph(data) {
         }
         edges.push(edge);
     }
-
+    
+    visualization.setOptions({physics: {enabled: true}});
     visualization.setData({nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges)});
+    visualization.on("stabilized", function(properties) {
+        visualization.setOptions({physics: {enabled: false}});
+    });
 }
 
 function parseGraph() {
