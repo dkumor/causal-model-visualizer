@@ -19,6 +19,9 @@
         <link rel="stylesheet" href="css/codemirror.css">
         <link rel="stylesheet" href="css/vis.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <script   src="https://code.jquery.com/jquery-3.1.1.slim.min.js"   integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+        
+
 
     </head>
     <body>
@@ -44,12 +47,15 @@
 <NODES>
 x
 y
-z
+z1 $z_1$
+z2 $z_2$
 
 <EDGES>
 x -> y
-x -- y
-z -> x
+x -- y U
+z1 -> x
+z2 -> x
+
 
           </textarea>
         </div>
@@ -59,12 +65,16 @@ z -> x
       </div>
 
     </div>
+    <!-- This div is used to render math -->
+    <div id="mathrender" style="display: none;"></div>
+    
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.1.0.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/vendor/codemirror.js"></script>
         <script src="js/vendor/active-line.js"></script>
         <script src="js/vendor/vis.min.js"></script>
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
 
         <script src="js/main.js"></script>
     </body>
