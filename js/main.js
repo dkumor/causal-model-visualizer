@@ -50,7 +50,7 @@ function drawGraph(data) {
                 from: data.edges[i][0],
                 to: data.edges[i][2],
                 arrows: "to",
-                color: "black"
+                color: "black",
             };
             if (data.edges[i][1] == "--") {
                 edge.arrows = 'to, from';
@@ -58,8 +58,8 @@ function drawGraph(data) {
                 edge.length = 200;
                 edge.smooth = {
                     enabled: true,
-                    type: 'dynamic',
-                    roundness: 1.0
+                    type: 'curvedCW',
+                    roundness: 0.5
                 };
             } else {
                 edge.length = 100;
@@ -78,14 +78,29 @@ function drawGraph(data) {
                     useImageSize: true
               }
             },
-            physics: {enabled: true}
+            edges: {
+                arrows: {
+                    to: {
+                        scaleFactor: 0.7
+                    },
+                    from: {
+                        scaleFactor: 0.7
+                    },
+                },
+            },
+            
+            physics: {
+                enabled: true,
+            }
         };
         visualization.setOptions(options);
         visualization.setData({nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges)});
+        
         visualization.on("stabilized", function(properties) {
             options.physics.enabled = false;
             visualization.setOptions(options);
         });
+        
     });
 }
 
